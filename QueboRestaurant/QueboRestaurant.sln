@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35707.178 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueboRestaurant", "QueboRestaurant.csproj", "{5FD59F4C-09F8-4227-9337-F3D39DB21845}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueboRestaurant.API", "..\QueboRestaurant.API\QueboRestaurant.API.csproj", "{DA66EDF0-F72E-453D-A731-59D6BFAF5BF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5FD59F4C-09F8-4227-9337-F3D39DB21845}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FD59F4C-09F8-4227-9337-F3D39DB21845}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FD59F4C-09F8-4227-9337-F3D39DB21845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA66EDF0-F72E-453D-A731-59D6BFAF5BF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA66EDF0-F72E-453D-A731-59D6BFAF5BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA66EDF0-F72E-453D-A731-59D6BFAF5BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA66EDF0-F72E-453D-A731-59D6BFAF5BF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
