@@ -21,12 +21,12 @@ steps:
       restoreSolution: '$(solution)'
 
   # 3. Preparar análisis de SonarCloud (Nueva versión)
-  - task: SonarCloudPrepare@1
+  - task: SonarCloudPrepare@2
     inputs:
       SonarCloud: 'SonarCloudConnection'
-      organization: 'queboRestaurant'
+      organization: 'braylin20'
       scannerMode: 'MSBuild'
-      projectKey: 'quebo'
+      projectKey: 'Braylin20_QueboRestaurant'
       projectName: 'QueboRestaurant'
       extraProperties: |
         sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/**/coverage.opencover.xml
@@ -46,10 +46,10 @@ steps:
       configuration: '$(buildConfiguration)'
 
   # 6. Ejecutar análisis de SonarCloud (Nueva versión)
-  - task: SonarCloudAnalyze@1
+  - task: SonarCloudAnalyze@2
 
   # 7. Publicar resultados en SonarCloud (Nueva versión)
-  - task: SonarCloudPublish@1
+  - task: SonarCloudPublish@2
     inputs:
       pollingTimeoutSec: '600'
 
