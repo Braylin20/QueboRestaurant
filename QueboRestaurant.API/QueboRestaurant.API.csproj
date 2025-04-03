@@ -22,4 +22,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\QueboRestaurant.Domain\QueboRestaurant.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
