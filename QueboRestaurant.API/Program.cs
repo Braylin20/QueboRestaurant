@@ -1,11 +1,16 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using QueboRestaurant.API.Dal;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<QueboRestaurantContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConStr")));
 
 var app = builder.Build();
 
