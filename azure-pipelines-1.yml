@@ -1,5 +1,3 @@
-# Pipeline para compilar y analizar un proyecto ASP.NET Core con SonarCloud
-
 trigger:
   - master
 
@@ -45,15 +43,12 @@ steps:
       platform: '$(buildPlatform)'
       configuration: '$(buildConfiguration)'
 
-  # 6. Ejecutar análisis de SonarCloud (Nueva versión)
-  - task: SonarCloudAnalyze@2
-
-  # 7. Publicar resultados en SonarCloud (Nueva versión)
+  # 6. Publicar resultados en SonarCloud
   - task: SonarCloudPublish@2
     inputs:
       pollingTimeoutSec: '600'
 
-  # 8. Publicar artefactos de compilación
+  # 7. Publicar artefactos de compilación
   - task: PublishBuildArtifacts@1
     inputs:
       pathToPublish: '$(Build.ArtifactStagingDirectory)'
