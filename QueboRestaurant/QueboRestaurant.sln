@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueboRestaurant.API", "..\Q
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueboRestaurant.Domain", "..\QueboRestaurant.Domain\QueboRestaurant.Domain.csproj", "{491BE821-64D0-414C-BA24-DA0D4B8A02C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueboRestaurant.Services", "..\QueboRestaurant.Services\QueboRestaurant.Services\QueboRestaurant.Services.csproj", "{EC6F5A8F-705B-4F1C-BF16-7E8E63C775C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +29,15 @@ Global
 		{491BE821-64D0-414C-BA24-DA0D4B8A02C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{491BE821-64D0-414C-BA24-DA0D4B8A02C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{491BE821-64D0-414C-BA24-DA0D4B8A02C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC6F5A8F-705B-4F1C-BF16-7E8E63C775C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC6F5A8F-705B-4F1C-BF16-7E8E63C775C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC6F5A8F-705B-4F1C-BF16-7E8E63C775C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC6F5A8F-705B-4F1C-BF16-7E8E63C775C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {789C9FDF-C1AD-499E-9452-C0FD281898BB}
 	EndGlobalSection
 EndGlobal
