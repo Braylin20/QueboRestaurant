@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueboRestaurant.API", "..\Q
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueboRestaurant.Domain", "..\QueboRestaurant.Domain\QueboRestaurant.Domain.csproj", "{491BE821-64D0-414C-BA24-DA0D4B8A02C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueboRestaurant.Services", "..\QueboRestaurant.Services\QueboRestaurant.Services.csproj", "{645B7782-96B2-437D-8172-6D91ECB29ACC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueboRestaurant.Abstractions", "..\QueboRestaurant.Abstractions\QueboRestaurant.Abstractions.csproj", "{6A8557E7-3DCE-40F6-A8C5-31713954415D}"
 EndProject
 Global
@@ -31,10 +29,6 @@ Global
 		{491BE821-64D0-414C-BA24-DA0D4B8A02C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{491BE821-64D0-414C-BA24-DA0D4B8A02C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{491BE821-64D0-414C-BA24-DA0D4B8A02C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{645B7782-96B2-437D-8172-6D91ECB29ACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{645B7782-96B2-437D-8172-6D91ECB29ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{645B7782-96B2-437D-8172-6D91ECB29ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{645B7782-96B2-437D-8172-6D91ECB29ACC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A8557E7-3DCE-40F6-A8C5-31713954415D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A8557E7-3DCE-40F6-A8C5-31713954415D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A8557E7-3DCE-40F6-A8C5-31713954415D}.Release|Any CPU.ActiveCfg = Release|Any CPU
