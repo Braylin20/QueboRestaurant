@@ -1,9 +1,7 @@
-# Build and test ASP.NET Core projects targeting the full .NET Framework.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+# Pipeline para compilar y analizar un proyecto ASP.NET Core con SonarCloud
 
 trigger:
-- master
+  - master
 
 pool:
   name: 'Default'
@@ -14,43 +12,49 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-# 1. Instalar herramientas de NuGet
-- task: NuGetToolInstaller@1
+  # 1. Instalar herramientas de NuGet
+  - task: NuGetToolInstaller@1
 
-# 2. Preparar análisis de SonarCloud
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'SonarCloudConnection'
-    organization: 'queboRestaurant'
-    projectKey: 'quebo'
-    projectName: 'QueboRestaurant'
-    scannerMode: 'MSBuild'
-    extraProperties: |
-      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/**/coverage.opencover.xml
+  # 2. Restaurar paquetes NuGet
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '$(solution)'
 
-# 3. Restaurar paquetes NuGet
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+  # 3. Preparar análisis de SonarCloud (Nueva versión)
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: 'SonarCloudConnection'
+      organization: 'queboRestaurant'
+      scannerMode: 'MSBuild'
+      projectKey: 'quebo'
+      projectName: 'QueboRestaurant'
+      extraProperties: |
+        sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/**/coverage.opencover.xml
 
-# 4. Compilar el proyecto con MSBuild
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+  # 4. Compilar el proyecto con MSBuild
+  - task: VSBuild@1
+    inputs:
+      solution: '$(solution)'
+      msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(Build.ArtifactStagingDirectory)/WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
 
-# 5. Ejecutar pruebas con VSTest
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+  # 5. Ejecutar pruebas con VSTest
+  - task: VSTest@2
+    inputs:
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
 
-# 6. Ejecutar análisis de SonarCloud
-- task: SonarCloudAnalyze@1
+  # 6. Ejecutar análisis de SonarCloud (Nueva versión)
+  - task: SonarCloudAnalyze@1
 
-# 7. Publicar los resultados en SonarCloud
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '600'
+  # 7. Publicar resultados en SonarCloud (Nueva versión)
+  - task: SonarCloudPublish@1
+    inputs:
+      pollingTimeoutSec: '600'
+
+  # 8. Publicar artefactos de compilación
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: 'drop'
